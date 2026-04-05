@@ -1,5 +1,6 @@
 import CoolProp.CoolProp as CP
 import numpy as np
+import matplotlib as mpl
 
 # Remarque Q = titre, donc si Q = 1 vapeur sat et si Q =0 liquide sat
 
@@ -42,11 +43,29 @@ def a(TH):
     COP = QH / Wcomp # rép
     return (m, QH, wcomp, Wcomp, COP)
 
-TH = arange(243.15, 288.15 + 1, 5)
-for i in TH:
-    print(a(i))
+mL = []
+QHL = []
+wL = []
+WL = []
+COPL = []
+for Tc in range(-30, 16, 5):
+    TH = Tc + 273.15
+    print(TH, a(TH))
+    res = a(TH)
+    mL.append(res[0])
+    QHL.append(res[1])
+    wL.append(res[2])
+    WL.append(res[3])
+    COPL.append(res[4])
 
+# Création de liste:
+THL = [243.15, 248.15, 253.15, 258.15, 263.15, 268.15, 273.15, 278.15, 283.15, 288.15]
 
+# = [0.022833708278694118, 0.02807341292378092, 0.034223124442314866, 
+   # 0.04139863976231401, 0.04972887361342295,0.05935851898902331,
+    #0.07045152403408475, 0.08319566738433593, 0.0978086434246237,
+   # 0.11454627147055088]
 
-
+mpl.figure()
+mpl.plot()
 
