@@ -1,6 +1,6 @@
 import CoolProp.CoolProp as CP
 import numpy as np
-import matplotlib as mpl
+import matplotlib.pyplot as mpl
 
 # Remarque Q = titre, donc si Q = 1 vapeur sat et si Q =0 liquide sat
 
@@ -61,11 +61,37 @@ for Tc in range(-30, 16, 5):
 # Création de liste:
 THL = [243.15, 248.15, 253.15, 258.15, 263.15, 268.15, 273.15, 278.15, 283.15, 288.15]
 
-# = [0.022833708278694118, 0.02807341292378092, 0.034223124442314866, 
+# mL = [0.022833708278694118, 0.02807341292378092, 0.034223124442314866, 
    # 0.04139863976231401, 0.04972887361342295,0.05935851898902331,
-    #0.07045152403408475, 0.08319566738433593, 0.0978086434246237,
+   # 0.07045152403408475, 0.08319566738433593, 0.0978086434246237,
    # 0.11454627147055088]
 
 mpl.figure()
-mpl.plot()
+mpl.plot(THL, mL)
+mpl.xlabel('Température extérieur [K]')
+mpl.ylabel('Débit massique [kg/s]')
+mpl.title('Graphique du débit massique en fonction de la température extérieur')
 
+mpl.figure()
+mpl.plot(THL, QHL)
+mpl.xlabel('Température extérieur [K]')
+mpl.ylabel('Puissance thermique [kW]')
+mpl.title('Graphique de la puissance thermique en fonction de la température extérieur')
+
+mpl.figure()
+mpl.plot(THL, wL)
+mpl.xlabel('Température extérieur [K]')
+mpl.ylabel('Travail de compression [kJ/kg]')
+mpl.title('Graphique du travail de compression en fonction de la température extérieur')
+
+mpl.figure()
+mpl.plot(THL, WL)
+mpl.xlabel('Température extérieur [K]')
+mpl.ylabel('Puissance du compresseur [kW]')
+mpl.title('Graphique de la puissance du compresseur en fonction de la température extérieur')
+
+mpl.figure()
+mpl.plot(THL, COPL)
+mpl.xlabel('Température extérieur [K]')
+mpl.ylabel('Coefficient de performance')
+mpl.title('Graphique du coeffiecient de performance en fonction de la température extérieur')
